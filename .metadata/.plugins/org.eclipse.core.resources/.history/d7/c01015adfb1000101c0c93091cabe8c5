@@ -1,0 +1,47 @@
+package org.projekat1.model;
+
+import java.time.LocalDate;
+
+public class Reservation {
+    private Event event;
+    private int numberOfTickets;
+    private User user;
+    private LocalDate reservationDate;
+    private String reservationStatus;
+    private boolean refundable;
+    private Ticket ticket;
+    
+    
+
+    public Reservation() {
+    }
+
+    public Reservation(Event event, int numberOfTickets, User user, LocalDate reservationDate, String reservationStatus, boolean refundable, Ticket ticket  ) {
+        this.event = event;
+        this.numberOfTickets = numberOfTickets;
+    }
+
+    public Event getEvent() {
+        return event;
+    }
+
+    public void setEvent(Event event) {
+        this.event = event;
+    }
+
+    public int getNumberOfTickets() {
+        return numberOfTickets;
+    }
+
+    public void setNumberOfTickets(int numberOfTickets) {
+        this.numberOfTickets = numberOfTickets;
+    }
+    
+    public LocalDate getReservationDate() {
+        return reservationDate;
+    }
+
+    public void setReservationDate(LocalDate reservationDate) {
+        this.reservationDate = reservationDate;
+    }
+}

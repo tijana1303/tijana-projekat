@@ -1,0 +1,57 @@
+package org.projekat1.model;
+
+
+import java.util.List;
+
+public class User {
+    private String name;
+    private String email;
+    private String password;
+    private String role;
+    private List<Reservation> reservations;
+    private List<Event> events;
+
+    public User() {
+    }
+
+    public User(String name, String email, String password, String role, List<Reservation> reservations, List<Event> events) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+        this.reservations = reservations;
+        this.events = events;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
+    }
+
+    public List<Event> getEvents() {
+        return events;
+    }
+
+    public void setEvents(List<Event> events) {
+        this.events = events;
+    }
+}

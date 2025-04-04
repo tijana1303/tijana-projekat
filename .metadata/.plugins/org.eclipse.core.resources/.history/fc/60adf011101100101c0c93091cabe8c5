@@ -1,0 +1,5 @@
+package org.projekat1.repository;
+
+public class EventRepository {
+
+}

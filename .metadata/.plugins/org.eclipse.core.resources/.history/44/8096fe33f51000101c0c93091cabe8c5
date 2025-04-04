@@ -1,0 +1,5 @@
+package org.projekat1.model;
+
+public class Event {
+
+}

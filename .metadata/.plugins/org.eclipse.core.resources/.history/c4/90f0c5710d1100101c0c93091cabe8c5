@@ -1,0 +1,117 @@
+package org.projekat1.model;
+
+
+import java.time.LocalDate;
+import java.util.List;
+
+public class Event {
+    private String name;
+    private LocalDate date;
+    private String location;
+    private String category;
+    private String description;
+    private String status;
+    private String contactSupport;
+    
+    private List<Ticket> tickets;
+    private List<Performer> performers;
+    private List<User> attendees;
+
+    public Event() {
+    }
+
+    public Event(String name, LocalDate date, String location,String category,String description,String status,String contactSupport, List<Ticket> tickets, List<Performer> performers, List<User> attendees) {
+        this.name = name;
+        this.date = date;
+        this.location = location;
+        this.category = category;
+        this.description = description;
+        this.status = status;
+        this.contactSupport = contactSupport;
+        this.tickets = tickets;
+        this.performers = performers;
+        this.attendees = attendees;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    
+    public String getCategory() {
+        return category;
+    }
+    
+    public void setCategory(String category) {
+        this.category = category;
+    }
+    
+    public String getDescription() {
+        return description;
+    }
+    
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    
+    public String getStatus() {
+        return status;
+    }
+    
+    public void setStatus(String status) {
+        this.status = status;
+    }
+    
+    public String getContactSupport() {
+        return contactSupport;
+    }
+    
+    public void setContactSupport(String contactSupport) {
+        this.contactSupport = contactSupport;
+    }
+    
+    public List<Ticket> getTickets() {
+        return tickets;
+    }
+
+    public void setTickets(List<Ticket> tickets) {
+        this.tickets = tickets;
+    }
+
+    public List<Performer> getPerformers() {
+        return performers;
+    }
+
+    public void setPerformers(List<Performer> performers) {
+        this.performers = performers;
+    }
+
+    
+    public List<User> getAttendees() {
+        return attendees;
+    }
+
+    public void setAttendees(List<User> attendees) {
+        this.attendees = attendees;
+    }
+}
