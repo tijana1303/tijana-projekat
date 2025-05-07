@@ -1,0 +1,69 @@
+package org.projekat1.model;
+
+import jakarta.persistence.*;
+import java.util.Set;
+import java.util.HashSet;
+
+@Entity
+public class Performer {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "performer_seq")
+    private Long id;
+
+    private String name;
+    private String genre;
+    private String performerType;
+
+    @ManyToMany(mappedBy = "performers")
+    private Set<Event> events = new HashSet<>();
+
+    public Performer() {
+    }
+
+    public Performer(String name, String genre, String performerType) {
+        this.name = name;
+        this.genre = genre;
+        this.performerType = performerType;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public String getPerformerType() {
+        return performerType;
+    }
+
+    public void setPerformerType(String performerType) {
+        this.performerType = performerType;
+    }
+
+    public Set<Event> getEvents() {
+        return events;
+    }
+
+    public void setEvents(Set<Event> events) {
+        this.events = events;
+    }
+}

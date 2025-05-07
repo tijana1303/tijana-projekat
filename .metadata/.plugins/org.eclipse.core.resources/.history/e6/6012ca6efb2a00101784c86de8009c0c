@@ -1,0 +1,8 @@
+package org.projekat1.client;
+
+public class HolidayDto {
+    public String date;
+    public String localName;
+    public String name;
+    public String countryCode;
+}

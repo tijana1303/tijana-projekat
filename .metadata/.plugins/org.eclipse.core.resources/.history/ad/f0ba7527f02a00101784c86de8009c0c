@@ -1,0 +1,3 @@
+date-api/mp-rest/url=https://date.nager.at
+quarkus.rest-client.date-api.url=https://date.nager.at/Api
+quarkus.rest-client.date-api.scope=jakarta.inject.Singleton

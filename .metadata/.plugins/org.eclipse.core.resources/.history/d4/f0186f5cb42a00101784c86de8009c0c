@@ -1,0 +1,20 @@
+package org.projekat1.repository;
+
+import jakarta.enterprise.context.Dependent;
+import jakarta.inject.Inject;
+import jakarta.persistence.EntityManager;
+import jakarta.transaction.Transactional;
+import org.projekat1.model.Performer;
+
+@Dependent
+public class PerformerRepository {
+
+    @Inject
+    private EntityManager em;
+
+    @Transactional
+    public Performer createPerformer(Performer performer) {
+        em.persist(performer);
+        return performer;
+    }
+}

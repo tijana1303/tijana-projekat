@@ -1,0 +1,39 @@
+package org.projekat1.repository;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import jakarta.enterprise.context.Dependent;
+import jakarta.inject.Inject;
+import jakarta.persistence.EntityManager;
+import jakarta.transaction.Transactional;
+import org.projekat1.model.Performer;
+
+@Dependent
+public class PerformerRepository {
+
+    @Inject
+    private EntityManager em;
+
+    @Transactional
+    public Performer createPerformer(Performer performer) {
+        return em.merge(performer);
+    }
+
+    @Transactional
+    public Set<Performer> getAllPerformers() { 
+        List<Performer> performers = em.createQuery("SELECT p FROM Performer p", Performer.class).getResultList();
+
+        return new HashSet<>(performers); // vraća jedinstvene izvođače
+    }
+
+    @Transactional
+    public Set<Performer> getPerformersByName(String name) {
+        List<Performer> performers = em.createQuery("SELECT p FROM Performer p WHERE p.name = :name", Performer.class)
+                                        .setParameter("name", name)
+                                        .getResultList();
+
+        return new HashSet<>(performers);  // vraća izvođače koji imaju isto ime
+    }
+}

@@ -1,0 +1,53 @@
+package org.projekat1.repository;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import jakarta.enterprise.context.Dependent;
+import jakarta.inject.Inject;
+import jakarta.persistence.EntityManager;
+import jakarta.transaction.Transactional;
+import org.projekat1.exception.EventException;
+import org.projekat1.model.Event;
+import org.projekat1.model.Ticket;
+
+@Dependent
+public class EventRepository {
+
+    @Inject
+    private EntityManager em;
+
+    @Transactional
+    public Event createEvent(Event event) {
+        return em.merge(event);
+    }
+
+    @Transactional
+    public Set<Event> getAllEvents() { 
+        List<Event> events = em.createNamedQuery(Event.GET_ALL_EVENTS, Event.class).getResultList();
+        Set<Event> eventSet = new HashSet<>(events);  
+
+        for (Event event : eventSet) {
+            List<Ticket> tickets = em.createNamedQuery(Ticket.GET_ALL_TICKETS, Ticket.class)
+                    .setParameter("event", event)
+                    .getResultList();
+
+            event.setTickets(new HashSet<>(tickets));  
+        }
+
+        return eventSet;  
+    }
+
+    public List<Event> getEventsByName(String name) throws EventException {
+        List<Event> events = em.createNamedQuery(Event.GET_ALL_EVENTS, Event.class)
+                .setParameter("name", name)
+                .getResultList();
+
+        if (events.isEmpty()) {
+            throw new EventException("Ne postoje događaji sa tim imenom.");
+        }
+
+        return events;
+    }
+}

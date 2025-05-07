@@ -1,0 +1,26 @@
+package org.projekat1.model;
+
+import jakarta.persistence.*;
+import java.time.LocalDate;
+
+@Entity
+public class Holiday {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String name;
+    
+    private LocalDate date;
+    
+    private String countryCode;
+    
+    private int year;
+
+    @ManyToOne
+    @JoinColumn(name = "holiday_type_id")
+    private HolidayType holidayType;
+
+    // Getters and Setters
+}

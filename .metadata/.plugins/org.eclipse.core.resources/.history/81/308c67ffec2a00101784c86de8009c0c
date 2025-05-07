@@ -1,0 +1,24 @@
+package org.projekat1.service;
+
+import org.eclipse.microprofile.rest.client.inject.RestClient;
+import org.projekat1.client.CountryDto;
+import org.projekat1.client.DateApiClient;
+
+import javax.inject.Inject;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import java.util.List;
+
+@Path("/date")
+public class DateService {
+
+    @Inject
+    @RestClient
+    DateApiClient dateApiClient;
+
+    @GET
+    @Path("/countries")
+    public List<CountryDto> getCountries() {
+        return dateApiClient.getAvailableCountries();
+    }
+}

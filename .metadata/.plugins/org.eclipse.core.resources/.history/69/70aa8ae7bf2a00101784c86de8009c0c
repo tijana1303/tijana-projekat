@@ -1,0 +1,19 @@
+package org.projekat1;
+
+import org.eclipse.microprofile.rest.client.inject.RestClient;
+import javax.inject.Inject;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+
+@Path("/date")
+public class DataService {
+
+    @Inject
+    @RestClient
+    DateApiClient dateApiClient;
+
+    @GET
+    public String getCurrentDate() {
+        return dateApiClient.getCurrentDate();
+    }
+}
